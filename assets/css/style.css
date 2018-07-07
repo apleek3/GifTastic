@@ -1,0 +1,259 @@
+
+/*-----------NavBar Code: ----------------*/
+
+
+.myheader {
+    background-color: #4aaaa5;
+    padding: 15px 10px 15px 10px !important;
+    position: relative;
+    font-size: 40px;
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 1000;
+        
+}
+
+
+                                                     /* HOLY CRAP BOOTSTRAP DID NOT WANT TO GIVE UP ITS DEFAULT SETTINGS */
+.navbar-default {
+    color: white !important;
+    top: -1px;
+    
+   
+}
+
+.navbar-brand {
+    color: white !important;
+    
+}
+
+li {
+   padding: 15px 10px 15px 10px;
+   
+}
+
+
+#dividers {
+    border-style: solid;
+    border: auto;
+    border-color: lightgrey;
+    border-top: 0px;
+    border-bottom: 0px;
+   
+
+}
+
+.paddown {
+    padding: 1% 20px 1% 20px !important;
+   position: relative;
+    top: 10px;
+}
+
+
+
+
+/*----------- Code dedicated to duplicating the look and body of the example page WITH Bootstrap: ----------------*/
+#me {
+    height: 200px;
+    width: 200px;
+    overflow: auto;
+}
+
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #4aaaa5;
+    font-weight: 1000;
+    
+}
+
+
+
+hr {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    display: block;
+    margin-top: 0.0em;
+    margin-bottom: -0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1.75px;
+    
+}
+
+body {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    /*background-color: gray;*/
+    background-image: url("../images/scribble_light.png");
+}
+
+p {
+    color: #777777;
+    line-height:  2.0;
+    font-size: 14px;
+}
+
+.maxwidth {
+    max-width: 960px;
+    padding: 0px 0px 0px 0px;
+    
+}
+
+
+
+.about {
+    background-color: #ffffff;  /*change the whitesmoke here*/
+    border-color: #dddddd;
+    width: 100%;
+    height: 100%;
+   
+   
+}
+
+div {
+    overflow: hidden;
+}
+
+.centerstage {
+    float: left;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    
+    
+    
+}
+div.content {
+    border: 1px solid;
+    border-color: lightgrey;
+    padding: 15px 30px 15px 30px;
+    position: relative; 
+    background-color: #ffffff !important;
+    margin: 0 auto;
+   
+}
+
+
+
+
+
+
+
+
+/*---- Now some coding for replicating the look of the footer----*/
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#666666;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    clear: both;
+    z-index: 100;
+}
+
+.border {
+    border-top-width: 10px;
+    border-style: solid;
+    border-left-width: 0px;
+    border-right-width:0px;
+    border-bottom-width:0px;
+    border-color: #4aaaa5;
+    
+}
+
+.padding {
+    padding-bottom: 5px;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+
+
+
+
+
+
+
+/* Now some coding for the OTHER pages --- starting with the contact.html page */
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 75%;
+    width: 99.5%;
+   
+    /* code suggested on stack. will save for later. */
+   /* display: block;
+   -webkit-box-sizing: border-box; 
+       -moz-box-sizing: border-box;
+            box-sizing: border-box; */
+    
+}
+
+#space {
+    height: 200px;
+    width: 100%;
+}
+
+.submit {
+    background-color: #4aaaa5;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+/* Lastly the portfolio page with thumbnails and titles */
+
+
+
+
+.portfolioimg {
+    padding: 20px 0px 20px 10px;
+    float: left;
+    position: relative;
+    margin-left: 0px;
+    overflow: hidden;
+  
+}
+
+
+.banner {
+    background-color: #4aaaa5;
+    position: absolute;
+    bottom: 30px;
+    padding: 10px 15px;
+    font-size: 24px;
+    font-weight: 250;
+    width: 100%;
+    max-width: 275px;
+    overflow: hidden;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+
