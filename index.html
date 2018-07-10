@@ -22,6 +22,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script> -->
 
+    <!--JQuery link-->
+    <script type="text/javascript" src="./assets/javascript/jquery-3.3.1.js"></script>
+    <script src="./assets/javascript/app.js"> </script>
+
     <!--<link rel="stylesheet" type="text/css" media="screen" href="reset.css" />-->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 
@@ -41,10 +45,10 @@
                                 <li class="active">
                                     <a href="#home">Home</a>
                                 </li>-->
-                <li class="active">
+                <li>
                     <a class="paddown" href="index.html">About</a>
                 </li>
-                <li>
+                <li class="active">
                     <a class="paddown" id="dividers" href="portfolio.html">Portfolio</a>
                 </li>
                 <li>
@@ -59,18 +63,37 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>
-
+                    Astronomy Buttons
                 </h1>
             </div>
         </div>
         <hr>
         <br>
+
+        <div id=astronomyButtons> 
+
+        </div>
+
+        <form id="astronomy-form">
+            <label for="astronomy-input">Add an astronomical body</label>
+            <input type="text" id="astronomy-input"><br>
+            <input id="addAstronomy" type="submit" value="Submit">
+
+        </form>
+        <br>
+        <br>
+        <br>
+        <div id="astronomy">
+
+        </div>
+
+        
         <div class="row">
             <div class="col-sm-3">
-                
+
             </div>
             <div class="col-sm-9">
-                
+
 
             </div>
 
@@ -96,3 +119,5 @@
 </body>
 
 </html>
+
+<!--Giphy API Key: dzRd4JQJhi8oMRInE0JuiDG5R4zD2Ls4-->
