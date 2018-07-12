@@ -10,7 +10,9 @@ $(document).ready(function () {
         // Looping through the array of astronomical bodies
         for (var i = 0; i < astronomicalBodies.length; i++) {
             var a = $("<button>"); // generates buttons for each astrobody in the array
-            a.addClass("button"); // Adds a class   
+            a.addClass("button"); // Adds a class
+            a.addClass("btn"); //Makes bootstrap buttons
+            a.addClass("btn-info"); //""
             a.attr("data-name", astronomicalBodies[i]);// Adding a data-attribute with a value of the movie at index i
             a.text(astronomicalBodies[i]); // Providing the button's text with a value of the movie at index i
             $("#astronomyButtons").append(a); // Adding the button to the HTML
@@ -28,6 +30,8 @@ $(document).ready(function () {
 
     $(document).on("click", ".button", function () {
         
+        $("#gifs").empty();
+
         // Grabbing and storing the data-astronomy property value from the button
         var astronomy = $(this).attr("data-name");
 
@@ -49,7 +53,7 @@ $(document).ready(function () {
                 var results = response.data;
 
                 // Looping through each result item
-                for (var i = 0; i < results.length; i++) {
+                for (var i = 0; i < 10; i++) {
 
                     // Creating and storing a div tag
                     var astronomyDiv = $("<div>");
@@ -64,6 +68,7 @@ $(document).ready(function () {
                     astronomyImage.addClass("astronomyGif");
 
                     // Appending the paragraph and image tag to the astronomyDiv
+                    astronomyDiv.addClass("fluid-container");
                     astronomyDiv.append(p);
                     astronomyDiv.append(astronomyImage);
 
