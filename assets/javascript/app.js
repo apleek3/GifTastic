@@ -11,13 +11,17 @@ $(document).ready(function () {
         for (var i = 0; i < astronomicalBodies.length; i++) {
             var a = $("<button>"); // generates buttons for each astrobody in the array
             a.addClass("button"); // Adds a class
-            a.addClass("btn"); //Makes bootstrap buttons
-            a.addClass("btn-info"); //""
+            a.addClass("btn"); //Makes bootstrap buttons type
+            a.addClass("btn-info"); //"Makes bootstrap buttons style"
             a.attr("data-name", astronomicalBodies[i]);// Adding a data-attribute with a value of the movie at index i
             a.text(astronomicalBodies[i]); // Providing the button's text with a value of the movie at index i
+            a.css({ "margin": "10px" }); //creates some space between the buttons
             $("#astronomyButtons").append(a); // Adding the button to the HTML
+
         }
     }
+
+    $("#astronomy-input").css({ "width": "25%", "height": "10px", "margin": "0px" });
 
     $("#addAstronomy").on("click", function (event) { // This function handles events where one button is clicked
         event.preventDefault();// Prevents the buttons default behavior when clicked
@@ -29,7 +33,7 @@ $(document).ready(function () {
     makeButtons();
 
     $(document).on("click", ".button", function () {
-        
+
         $("#gifs").empty();
 
         // Grabbing and storing the data-astronomy property value from the button
@@ -74,21 +78,29 @@ $(document).ready(function () {
 
                     // Prependng the astronomyDiv to the HTML page in the "#gifs-appear-here" div
                     $("#gifs").prepend(astronomyDiv);
+
                 }
+
+
             });
+        //Stops and Starts the gifs by using the fixed and animated urls from the Giphy API
+        $(document).on('click', '.astronomyGif', function () {           //targets the gifs created with class astronomyGif
+            var source = $(this).attr("src");                           //creates source variable representing the gifs current info path for if / else statement
+            //FIRST CLICK will assign the class 'animate' according to function
+            if ($(this).hasClass('animate')) {
+                console.log("a");
+                $(this).removeClass('animate');                            //removes the class animate so the image can be fed through the if/else again properly
+                $(this).attr('src', source.replace(/\.gif/gi, "_s.gif"))    //replaces a snippet in the source specified as \.gif with _s.gif. The "gi" denotes the "global ignore" case flag; which means "globally ignore any code snippet I have specified." Regular "i" did not work for all gifs.
+            } else {
+                console.log(this);
+                console.log("b");
+                $(this).addClass('animate'); //adds the class 'animate'
+                $(this).attr('src', source.replace(/\_s.gif/gi, ".gif")) //replaces a snippet in the source specified as \_s.gif with .gif.
+            
+            }
+            
+        });
+
     });
-
-    $(document).on("click", ".astronomyGif", function () {
-        var state = $(this).attr("data-state");        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-        if (state === "still") {        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-            $(this).attr("src", $(this).attr("data-animate"));
-            $(this).attr("data-state", "animate");     // Then, set the image's data-state to animate
-        } else {        // Else set src to the data-still value
-            $(this).attr("src", $(this).attr("data-still"));
-            $(this).attr("data-state", "still");
-        }
-    });
-
-
 }); // ENDING BRACKET OF THE .ready function. DO NOT TOUCH!!!!
 
