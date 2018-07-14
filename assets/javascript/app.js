@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log("Ready!");//lets me know jQuery is G2G
 
-    var astronomicalBodies = []; //global array to store the inputs
+    var astronomicalBodies = ["star","planet","comet","quasar","pulsar"]; //global array to store the inputs
 
     function makeButtons() {
 
@@ -31,6 +31,22 @@ $(document).ready(function () {
     });
 
     makeButtons();
+    $(document).on('click', '.astronomyGif', function () {           //targets the gifs created with class astronomyGif
+
+        var source = $(this).attr("src");                           //creates source variable representing the gifs current info path for if / else statement
+        //FIRST CLICK will assign the class 'animate' according to function
+        if ($(this).hasClass('animate')) {
+            $(this).removeClass('animate'); 
+            $(this).addClass('still');                           //removes the class animate so the image can be fed through the if/else again properly
+            $(this).attr('src', source.replace(/\.gif/gi, "_s.gif"))    //replaces a snippet in the source specified as \.gif with _s.gif. The "gi" denotes the "global ignore" case flag; which means "globally ignore any code snippet I have specified." Regular "i" did not work for all gifs.
+        } else {
+            $(this).removeClass('still');
+            $(this).addClass('animate'); //adds the class 'animate'
+            $(this).attr('src', source.replace(/\_s\.gif/gi, ".gif")) //replaces a snippet in the source specified as \_s.gif with .gif.
+        
+        } // end of if
+        
+    });
 
     $(document).on("click", ".button", function () {
 
@@ -48,59 +64,43 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         })
-            // After data comes back from the request
-            .then(function (response) {
-                console.log(queryURL);
+        // After data comes back from the request
+        .then(function (response) {
+            console.log(queryURL);
 
-                console.log(response);
-                // storing the data from the AJAX request in the results variable
-                var results = response.data;
+            console.log(response);
+            // storing the data from the AJAX request in the results variable
+            var results = response.data;
 
-                // Looping through each result item
-                for (var i = 0; i < 10; i++) {
+            // Looping through each result item
+            for (var i = 0; i < 10; i++) {
 
-                    // Creating and storing a div tag
-                    var astronomyDiv = $("<div>");
+                // Creating and storing a div tag
+                var astronomyDiv = $("<div>");
 
-                    // Creating a paragraph tag with the result item's rating
-                    var p = $("<p>").text("Rating: " + results[i].rating);
+                // Creating a paragraph tag with the result item's rating
+                var p = $("<p>").text("Rating: " + results[i].rating);
 
-                    // Creating and storing an image tag
-                    var astronomyImage = $("<img>");
-                    // Setting the src attribute of the image to a property pulled off the result item
-                    astronomyImage.attr("src", results[i].images.fixed_height.url);
-                    astronomyImage.addClass("astronomyGif");
+                // Creating and storing an image tag
+                var astronomyImage = $("<img>");
+                // Setting the src attribute of the image to a property pulled off the result item
+                astronomyImage.attr("src", results[i].images.fixed_height.url);
+                astronomyImage.addClass("astronomyGif");
+                astronomyImage.addClass("animate");
 
-                    // Appending the paragraph and image tag to the astronomyDiv
-                    astronomyDiv.addClass("fluid-container");
-                    astronomyDiv.append(p);
-                    astronomyDiv.append(astronomyImage);
+                // Appending the paragraph and image tag to the astronomyDiv
+                astronomyDiv.addClass("fluid-container");
+                astronomyDiv.append(p);
+                astronomyDiv.append(astronomyImage);
 
-                    // Prependng the astronomyDiv to the HTML page in the "#gifs-appear-here" div
-                    $("#gifs").prepend(astronomyDiv);
+                // Prependng the astronomyDiv to the HTML page in the "#gifs-appear-here" div
+                $("#gifs").prepend(astronomyDiv);
 
-                }
+            } // end of for
 
+        }); // end of ajax 
 
-            });
-        //Stops and Starts the gifs by using the fixed and animated urls from the Giphy API
-        $(document).on('click', '.astronomyGif', function () {           //targets the gifs created with class astronomyGif
-            var source = $(this).attr("src");                           //creates source variable representing the gifs current info path for if / else statement
-            //FIRST CLICK will assign the class 'animate' according to function
-            if ($(this).hasClass('animate')) {
-                console.log("a");
-                $(this).removeClass('animate');                            //removes the class animate so the image can be fed through the if/else again properly
-                $(this).attr('src', source.replace(/\.gif/gi, "_s.gif"))    //replaces a snippet in the source specified as \.gif with _s.gif. The "gi" denotes the "global ignore" case flag; which means "globally ignore any code snippet I have specified." Regular "i" did not work for all gifs.
-            } else {
-                console.log(this);
-                console.log("b");
-                $(this).addClass('animate'); //adds the class 'animate'
-                $(this).attr('src', source.replace(/\_s.gif/gi, ".gif")) //replaces a snippet in the source specified as \_s.gif with .gif.
-            
-            }
-            
-        });
+    }); // end of button click to load all the images
 
-    });
 }); // ENDING BRACKET OF THE .ready function. DO NOT TOUCH!!!!
 

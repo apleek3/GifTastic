@@ -47,13 +47,13 @@
                                     <a href="#home">Home</a>
                                 </li>-->
                 <li>
-                    <a class="paddown" href="index.html">About</a>
+                    <a class="paddown" href="../index.html">About</a>
                 </li>
                 <li class="active">
-                    <a class="paddown" id="dividers" href="portfolio.html">Portfolio</a>
+                    <a class="paddown" id="dividers" href="../portfolio.html">Portfolio</a>
                 </li>
                 <li>
-                    <a class="paddown" href="contact.html">Contact</a>
+                    <a class="paddown" href="../contact.html">Contact</a>
                 </li>
             </ul>
         </div>
@@ -62,32 +62,50 @@
 
     <div class="fluid-container content maxwidth">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-2 sidenav">
+
+                <p>
+                    <a href="../TriviaGame/index.html">Trivia</a>
+                </p>
+                <p>
+                    <a href="../WordGuessGame/index.html">Hangman</a>
+                </p>
+                <p>
+                    <a href="../unit-4-game/index.html">Crystal Collector</a>
+                </p>
+                <p>
+                    <a href="./index.html">GifTastic!</a>
+                </p>
+
+
+            </div>
+            <div class="col-sm-10">
                 <h1>
                     Astronomy Buttons
                 </h1>
+                <p> Click the buttons to see some gifs!</p>
+
+
+                <hr>
+                <br>
+                <br>
+                <br>
+                <div id=astronomyButtons></div>
+                <br>
+                <br>
+                <br>
+                <form id="astronomy-form">
+                    <label for="astronomy-input">Don't like those? Add an another astronomical body here:&nbsp;</label>
+                    <input type="text" id="astronomy-input">
+                    <br>
+                    <input id="addAstronomy" type="submit" value="Submit">
+
+                </form>
+                <p>Click the gifs to pause them.</p>
+                <div class="fluid-container" id="gifs"></div>
             </div>
         </div>
-        <hr>
-        <br>
-        <br>
-        <br>
-        <div id=astronomyButtons></div>
-        <br>
-        <br>
-        <br>
-        <form id="astronomy-form">
-            <label for="astronomy-input">Add an astronomical body here:&nbsp;</label>
-            <input type="text" id="astronomy-input">
-            <br>
-            <input id="addAstronomy" type="submit" value="Submit">
-
-        </form>
-
-        <div class="fluid-container" id="gifs"></div>
-
     </div>
-
     <div class="row col-sm-12">
         <br>
         <br>
